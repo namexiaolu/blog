@@ -4,12 +4,15 @@
       <el-col :span="15" :offset="0">
         <div class="grid-content">
           <el-row>
-            <el-col :span="23" :offset="1">
-              <el-card shadow="hover" class="list-card box-card" v-for="(data,i) in data" :key="i">
+            <el-col :span="23" :offset="1" >
+              <el-card shadow="hover" class="list-card box-card" v-for="(data,i) in data" :key="i" > 
+                <div @click="goArticle(data.id)">
+
+                
                 <el-col :span="16">
-                  <el-link href="#" target="_blank">
-                    <div class="list-card-title">{{data.post_title}}</div>
-                  </el-link>
+                
+                    <div class="list-card-title"  >{{data.post_title}}</div>
+                  
                 </el-col>
                 <el-col :span="6" :push="2">
                   <div
@@ -21,6 +24,7 @@
                     <div class="list-content">{{data.post_content}}</div>
                   </el-link>
                 </el-col>
+                </div>
               </el-card>
             </el-col>
           </el-row>
@@ -33,9 +37,10 @@
           <b>最近文章</b>
           <p></p>
           <el-card class="box-card">
-            
-              <div v-for="(data,i) in data" :key="i" class="text item"><el-link href="#" target="_blank">{{data.post_title}}</el-link></div>
-            
+            <div v-for="(data,i) in data" :key="i" class="text item" >
+              <!-- <el-link href="#" target="_blank"></el-link> -->
+              <div @click="goArticle(data.id)">{{data.post_title}}</div>
+            </div>
           </el-card>
         </div>
       </el-col>
@@ -46,7 +51,7 @@
 <script>
 // @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
-import { getPosts } from "./content/api";
+import { getPosts } from "./api";
 
 export default {
   name: "Home",
@@ -93,6 +98,12 @@ export default {
         }
       }
       return fmt;
+    }
+  },
+  methods: {
+    goArticle(ArticleId){
+    
+      this.$router.push({ path: `/Article/${ArticleId}`})
     }
   }
 };
@@ -153,6 +164,4 @@ export default {
 .item {
   padding: 18px 0;
 }
-
-
 </style>

@@ -4,7 +4,7 @@
     <div id="nav">
       
       <router-link to="/">首页</router-link> |
-      <router-link to="/about">文章展示</router-link>丨
+      <router-link to="/Article">文章展示</router-link>丨
       <router-link to="/login">归档</router-link>
     </div>
     <router-view/>
