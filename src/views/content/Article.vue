@@ -7,9 +7,9 @@
             <el-col :span="23" :offset="1">
               <el-card shadow="hover">
                 <div class="content-title">
-                  <h2>{{data.post_title}}题目</h2>
+                  <h2>{{data.post_title}}</h2>
                 </div>
-                <p class="content">{{data.post_content}}这是内容哈哈哈</p>
+                <p class="content">{{data.post_content}}</p>
                 <el-col :span="6" :push="2"></el-col>
                 <el-col :span="24">
                   <div class="list-content"></div>
