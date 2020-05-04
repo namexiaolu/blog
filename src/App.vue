@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <H2>web前端笔记本</H2>
+    <router-link to="/" class="tohome"><H2 >web前端笔记本</H2></router-link>
+    
     <div id="nav">
-      
+      <!-- <router-link to="/" class="tohome"><h2 >web前端笔记本</h2></router-link> -->
       <!-- <router-link to="/">首页</router-link> | -->
      
     </div>
@@ -11,6 +12,10 @@
 </template>
 
 <style>
+.tohome {
+   text-decoration: none;
+   color: black;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -21,6 +26,7 @@
 
 #nav {
   padding: 30px;
+  
  
 }
 

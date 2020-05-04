@@ -20,9 +20,9 @@
                   >{{data.post_date | compFilter('yyyy-MM-dd hh:mm') }}</div>
                 </el-col>
                 <el-col :span="24">
-                  <el-link href="#" target="_blank" :underline="false">
-                    <div class="list-content">{{data.post_content}}</div>
-                  </el-link>
+                  <div href="#" target="_blank" :underline="false">
+                    <div class="list-content" @click="goArticle(data.id)">{{data.post_content}}</div>
+                  </div>
                 </el-col>
                 </div>
               </el-card>

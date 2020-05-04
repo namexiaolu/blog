@@ -27,8 +27,8 @@
           <p></p>
           <el-card class="box-card">
             <div v-for="(data,i) in dataAll" :key="i" class="text item">
-              
               <div @click="goArticle(data.id)">{{data.post_title}}</div>
+           
             </div>
           </el-card>
         </div>
@@ -43,32 +43,44 @@ export default {
   data() {
     return {
       data: {},
-      dataAll:[]
+      dataAll: []
     };
   },
 
-  created() {
-    
+  mounted() {
     var id = this.$route.params.ArticleId;
+    this.init(id)
     
-    getPosts(id).then(res => {
+  },
+  beforeRouteUpdate(to, from, next) {
+    // just use `this`
+    this.name = to.params.name;
+    console.log("to" , to);
+    console.log("from" ,from);
+    console.log("next::" + next);
+    this.init(to.params.ArticleId)
+    next();
+
+  },
+  methods: {
+    init(id){
+      getPosts(id).then(res => {
       console.log(res);
 
       if (res.code === 200) {
         this.data = res.data;
       }
     });
-    getPostshome().then(res1=>{
-      if(res1.code === 200){
+    getPostshome().then(res1 => {
+      if (res1.code === 200) {
         this.dataAll = res1.data.pageResult;
-        console.log(this.dataAll)
+        console.log(this.dataAll);
       }
-    })
-  },
-   methods: {
-    goArticle(ArticleId){
-    
-      this.$router.push({ path: `/Article/${ArticleId}`})
+    });
+    },
+    goArticle(ArticleId) {
+      this.$router.push({ path: `/Article/${ArticleId}` });
+      // id = this.ArticleId;
     }
   }
 };
