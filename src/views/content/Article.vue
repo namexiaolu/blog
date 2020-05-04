@@ -21,7 +21,7 @@
       </el-col>
       <el-col :span="4">
         <div class="grid-content">
-          <el-input placeholder="请输入内容" prefix-icon="el-icon-search"></el-input>
+          <!-- <el-input placeholder="请输入内容" prefix-icon="el-icon-search"></el-input> -->
           <p></p>
           <b>最近文章</b>
           <p></p>
